@@ -32,6 +32,7 @@ export const StartLogo = styled.div`
     font-size: 25px;
     font-weight:700;
 `
+
 export const StartLogo_Mbti = styled.div`
     background-color : #413730;
     color: #ffea35;
@@ -54,4 +55,137 @@ export const StartButton = styled.button`
     margin-top : 20px;
     background-color: transparent; /* 배경색을 투명하게 설정 */
     border: none; /* 테두리 제거 */
+`
+
+export const QuestionLayout = styled.div`
+    display:flex;
+    flex-direction: column;
+    background-color: #bacee0;
+    width : 100%;
+    max-width: 900px;
+    height:100%;
+    overflow: hidden;
+`
+
+export const MbtiTitle = styled.div`
+    display : flex;
+    flex-direction: row;
+    width : 100%;
+    align-items: center;
+    padding : 15px;
+    box-sizing :border-box;
+    font-weight : 700;
+`
+
+export const MbtiTitle1 = styled.div`
+    display : flex;
+    flex  : 1;
+`
+
+export const QuestionList = styled.div`
+    flex-direction: column;
+    height: 100%;
+    overflow : scroll;
+    scrollbar-width : none;
+`
+
+export const QuestionItemLayout = styled.div`
+    display: flex;
+    flex: 1;
+    margin : 10px 15px 5px 15px;
+`
+
+export const AnswerItemLayout = styled.div`
+    width:100%;
+    background-color : #fff;
+    padding-bottom: 10px;
+    display:flex;
+    flex-direction: column;
+`
+
+export const ProfileImg = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    height : 40px;
+    background-color : #a1b6e9;
+    border-radius: 15px;
+    margin-right : 5px;
+    align-items: center;
+    justify-content: center;
+`
+
+export const ProfileImg1 = styled.div`
+    background-color : #cbd6f2;
+    width : 8px;
+    height: 8px;
+    border-radius: 4px;
+`
+
+export const ProfileImg2 = styled.div`
+    background-color : #cbd6f2;
+    width : 16px;
+    height: 8px;
+    border-radius: 8px 8px 0px 0px;
+    margin-top : 2px;
+`
+export const ChatListLayout = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+export const ChatBox = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width : 60vw;
+    margin : 3px 0px 12px 0px;
+
+    > div:nth-child(1) {
+        /* 두 번째 자식 div 요소에 스타일을 적용합니다. */
+        color: white;
+        font-size : 12px;
+        margin-top: 8px;
+    }
+
+    > div:nth-child(2) {
+        /* 두 번째 자식 div 요소에 스타일을 적용합니다. */
+        padding : 7px 10px 7px 10px;
+        background-color: #fff;
+        margin-left : -4px;
+        border-radius: 10px;
+        text-align : left;
+    }
+`
+
+export const AchatBox = styled.div`
+    display:flex;
+    width : 100%;
+    color: #969696;
+    font-size : 22px;
+    border-bottom : 1px solid #eee;
+    margin-bottom : 25px;
+
+    > div:nth-child(1) {
+        display : flex;
+        flex : 1;
+        padding : 10px;
+        box-sizing: border-box;
+    }
+
+    > div:nth-child(2) {
+        padding: 10px;
+    }
+`
+
+export const AnswerBox = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    text-align: center;
+    box-shadow : 2px 2px 0px #ededed;
+    border:1px solid #ededed;
+    margin : 0px 20px 15px 20px;
+    border-radius: 15px;
 `
