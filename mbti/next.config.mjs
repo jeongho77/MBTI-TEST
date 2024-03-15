@@ -1,19 +1,13 @@
-/** @type {import('next').NextConfig} */
 const debug = process.env.NODE_ENV !== "production";
 const repository = "https://jeongho77.github.io/MBTI-TEST/mbti/";
 
 const nextConfig = {
-
-  output: 'export',
+  basePath: '/mbti',
+  assetPrefix: debug ? "" : repository,
   reactStrictMode: true,
-  assetPrefix: !debug ? `${repository}` : "", // production 일때 prefix 경로
-  trailingSlash: true, // 빌드 시 폴더 구조 그대로 생성하도록
-  basePath: `${repository}`,
+  trailingSlash: true,
 };
 
-export const prefix =
-  process.env.NODE_ENV === "production"
-    ? "https://jeongho77.github.io/MBTI-TEST/mbti/"
-    : "";
+export const prefix = debug ? "" : repository;
 
 export default nextConfig;
