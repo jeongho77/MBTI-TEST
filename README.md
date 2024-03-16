@@ -55,8 +55,6 @@ https://jeongho77.github.io/MBTI-TEST/index.html
 ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/aafcde50-e80f-48fb-92b5-14300c82804d/4bc4dfe3-52a3-4d95-8a02-e70bdbcc626f/Untitled.png)
 
 
-# 3. 테스트페이지 구현하기
-
 # 테스트페이지 구현하기
 
 ## 질문리스트 객체로 만들기
