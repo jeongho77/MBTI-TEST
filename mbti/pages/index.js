@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Mbti_Layout,StartLogo,StartPageLayout,StartButton,StartLogo_Mbti,StartLogo_motion,AnswerItemLayout,MbtiTitle,MbtiTitle1,QuestionItemLayout,QuestionLayout,QuestionList,ChatBox,ChatListLayout,ProfileImg,ProfileImg1,ProfileImg2, AchatBox, AnswerBox,} from "../styles/mbti_css";
+import { Mbti_Layout,StartLogo,StartPageLayout,StartButton,StartLogo_Mbti,StartLogo_motion,AnswerItemLayout,MbtiTitle,MbtiTitle1,QuestionItemLayout,QuestionLayout,QuestionList,ChatBox,ChatListLayout,ProfileImg,ProfileImg1,ProfileImg2, AchatBox, AnswerBox, StartLogo_1, StartLogo_motion_Wrapper, StartLogo_motion_spacebar,} from "../styles/mbti_css";
 import theme from "../styles/theme";
 
 export default function App() {
@@ -182,6 +182,15 @@ const setVh = () => {
     setMbtiContents(mc.filter(val=>val.mbti === mbti)[0])
     }
 
+    const handleMouseEnter = (event) => {
+        event.target.style.transform = 'translateY(-20px)';
+        
+    };
+
+    const handleMouseLeave = (event) => {
+        event.target.style.transform = 'translateY(0)';
+    };
+
     return (
         <Mbti_Layout>    
             {page===0? 
@@ -190,11 +199,56 @@ const setVh = () => {
             //삼항연산자를 이렇게도 사용할수 있다.
             <StartPageLayout>
                 <StartLogo>
-                    <StartLogo_Mbti>MBTI</StartLogo_Mbti>
-                    <StartLogo_motion>▼</StartLogo_motion>
-                    <StartLogo_motion>당신은 가온누리 부원입니다!</StartLogo_motion>
+                    <StartLogo_Mbti>MBTI 테스트</StartLogo_Mbti>
+                    <StartLogo_1>▼</StartLogo_1>
+                    <StartLogo_motion_Wrapper>
+                    <StartLogo_motion>당</StartLogo_motion>
+                    <StartLogo_motion>신</StartLogo_motion>
+                    <StartLogo_motion>은</StartLogo_motion>
+                    <StartLogo_motion>_</StartLogo_motion>
+                    <StartLogo_motion>어</StartLogo_motion>
+                    <StartLogo_motion>떤</StartLogo_motion>
+                    <StartLogo_motion>_</StartLogo_motion>
+                    <StartLogo_motion>M</StartLogo_motion>
+                    <StartLogo_motion>B</StartLogo_motion>
+                    <StartLogo_motion>T</StartLogo_motion>
+                    <StartLogo_motion>I</StartLogo_motion>
+                    <StartLogo_motion>를</StartLogo_motion>
+                    <StartLogo_motion>_</StartLogo_motion>
+                    <StartLogo_motion>가</StartLogo_motion>
+                    <StartLogo_motion>지</StartLogo_motion>
+                    <StartLogo_motion>고</StartLogo_motion>
+                    <StartLogo_motion>_</StartLogo_motion>
+                    <StartLogo_motion>있</StartLogo_motion>
+                    <StartLogo_motion>나</StartLogo_motion>
+                    <StartLogo_motion>요</StartLogo_motion>
+                    <StartLogo_motion>?</StartLogo_motion>
+                    </StartLogo_motion_Wrapper>
+                    {/* <StartLogo_motion> */}
+                    {/* <span id="text1" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>당</span>
+              <span id="text2" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>신</span>
+              <span id="text3" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>은</span>
+              <span id="text21" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>_</span>
+              <span id="text4" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>어</span>
+              <span id="text5" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>떤</span>
+              <span id="text6" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>_</span>
+              <span id="text7" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>M</span>
+              <span id="text8" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>B</span>
+              <span id="text9" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>T</span>
+              <span id="text10" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>I</span>
+              <span id="text11" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>를</span>
+              <span id="text12" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>_</span>
+              <span id="text13" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>가</span>
+              <span id="text14" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>지</span>
+              <span id="text15" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>고</span>
+              <span id="text16" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>_</span>
+              <span id="text17" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>있</span>
+              <span id="text18" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>나</span>
+              <span id="text19" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>요</span>
+            <span id="text20" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>?</span> */}
+                    {/* </StartLogo_motion> */}
                 </StartLogo>
-                <StartButton onClick={()=> setPage(1)}>▶ 테스트 시작하기 ◀</StartButton>
+                <StartButton onClick={()=> setPage(1)}>▶ 시작하기 ◀</StartButton>
             </StartPageLayout>
 
             :page <= questionList.length? //페이지수보다 퀘스트리스트의 변수가 많다면 실행 즉, 페이지수에 객체수가 부족하면 끝!
