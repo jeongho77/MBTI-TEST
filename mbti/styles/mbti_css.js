@@ -34,7 +34,7 @@ export const StartLogo = styled.div`
 
 export const StartLogo_Mbti = styled.div`
     background-color : #413730;
-    color: #ffea35;
+    color: paleturquoise;
     width : 300px;
     height: 100px;
     display : flex;
