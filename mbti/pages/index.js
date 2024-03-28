@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
-import { Mbti_Layout,StartLogo,StartPageLayout,StartButton,StartLogo_Mbti,StartLogo_motion,AnswerItemLayout,MbtiTitle,MbtiTitle1,QuestionItemLayout,QuestionLayout,QuestionList,ChatBox,ChatListLayout,ProfileImg,ProfileImg1,ProfileImg2, AchatBox, AnswerBox, StartLogo_1, StartLogo_motion_Wrapper, StartLogo_motion_spacebar,} from "../styles/mbti_css";
+import { Mbti_Layout,StartLogo,StartPageLayout,StartButton,StartLogo_Mbti,StartLogo_motion,AnswerItemLayout,MbtiTitle,MbtiTitle1,QuestionItemLayout,QuestionLayout,QuestionList,ChatBox,ChatListLayout,ProfileImg,ProfileImg1,ProfileImg2, AchatBox, AnswerBox, StartLogo_1, StartLogo_motion_Wrapper, StartLogo_motion_spacebar, ChatBox_Btn,} from "../styles/mbti_css";
+import ConfettiExplosion from "react-confetti-explosion";
 import theme from "../styles/theme";
 
+
+
 export default function App() {
+    const [isExploding, setIsExploding] = useState(true);
+    const [translateY, setTranslateY] = useState(-400);
     
 const setVh = () => {
+    
     const vh = window.innerHeight * 0.01; 
     //현재 viewport 파악후 1/100 하기
     document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -25,7 +31,7 @@ const setVh = () => {
     const [page,setPage] = useState(0)
 
     const questionList = [ //질문들
-        {q:['가온누리 동아리방에 도착했다!' , '(하지만 아무도 방에 없다!)'],
+        {q:['(가온누리 동아리방에 도착했는데)' , '(방에 아무도 없다!)'],
         a:[{type:'I' , text:'아싸!! 공부해야지!!! (오예!!!!)'},
            {type:'E', text:'어쩔 수 없지 뭐 ㅠㅠ (다른사람 만나러가야지!!)'}]},
         
@@ -89,6 +95,7 @@ const setVh = () => {
     const handleCkAnswer = (type,idx) => {
         console.log(type)
         let ls = mbtiList; //useState에 있는 mbtiList 들고오기.
+        setTranslateY(-400)
         for(let i = 0; i < ls.length; i++){ //mbtiList 전체로 돌리기
             if(ls[i].name===type){ 
             //mbtiList의 name과 QuestionList의 type이 일치하면 i,e,s,n,t,f,p,j 에 1 더해주기
@@ -182,14 +189,12 @@ const setVh = () => {
     setMbtiContents(mc.filter(val=>val.mbti === mbti)[0])
     }
 
-    const handleMouseEnter = (event) => {
-        event.target.style.transform = 'translateY(-20px)';
-        
-    };
-
-    const handleMouseLeave = (event) => {
-        event.target.style.transform = 'translateY(0)';
-    };
+    function ChatBox_Btn_Onclick(event) {
+       
+        event.currentTarget.style.display = 'none'; // ChatBox를 -200px만큼 이동
+        setTranslateY(0); // translateY 값을 토글
+    }
+    
 
     return (
         <Mbti_Layout>    
@@ -197,6 +202,7 @@ const setVh = () => {
             //삼항연산자를 사용하여 0일때 StartPageLayout까지 보여줌
             //버튼이 눌려질때까지 0페이지를 보여주고 1이 넘어가면 다음페이지를 보여줌!
             //삼항연산자를 이렇게도 사용할수 있다.
+           
             <StartPageLayout>
                 <StartLogo>
                     <StartLogo_Mbti>MBTI 테스트</StartLogo_Mbti>
@@ -224,29 +230,6 @@ const setVh = () => {
                     <StartLogo_motion>요</StartLogo_motion>
                     <StartLogo_motion>?</StartLogo_motion>
                     </StartLogo_motion_Wrapper>
-                    {/* <StartLogo_motion> */}
-                    {/* <span id="text1" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>당</span>
-              <span id="text2" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>신</span>
-              <span id="text3" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>은</span>
-              <span id="text21" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>_</span>
-              <span id="text4" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>어</span>
-              <span id="text5" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>떤</span>
-              <span id="text6" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>_</span>
-              <span id="text7" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>M</span>
-              <span id="text8" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>B</span>
-              <span id="text9" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>T</span>
-              <span id="text10" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>I</span>
-              <span id="text11" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>를</span>
-              <span id="text12" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>_</span>
-              <span id="text13" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>가</span>
-              <span id="text14" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>지</span>
-              <span id="text15" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>고</span>
-              <span id="text16" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>_</span>
-              <span id="text17" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>있</span>
-              <span id="text18" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>나</span>
-              <span id="text19" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>요</span>
-            <span id="text20" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>?</span> */}
-                    {/* </StartLogo_motion> */}
                 </StartLogo>
                 <StartButton onClick={()=> setPage(1)}>▶ 시작하기 ◀</StartButton>
             </StartPageLayout>
@@ -267,8 +250,9 @@ const setVh = () => {
                                 <ProfileImg2></ProfileImg2>
                             </ProfileImg>
                             <ChatListLayout>
+                               <ChatBox_Btn onClick={ChatBox_Btn_Onclick}>버튼을 눌려줘!</ChatBox_Btn>
                                {val.q.map((qval, qidx) => 
-                                    <ChatBox key={qidx}>
+                                    <ChatBox key={qidx} style={{ transform: `translateY(${translateY}px)` }}>
                                         <div>◀</div> <div>{qval}</div> 
                                         {/* qval 은 문제를 가져옴! 왜냐하면
                                         val.q.map이기때문에 questionList.q에서 값을 qval에 넣고 qidx로 관리함
@@ -277,7 +261,7 @@ const setVh = () => {
                                 )}  
                             </ChatListLayout>
                         </QuestionItemLayout>
-                        <AnswerItemLayout>``
+                        <AnswerItemLayout>
 
                             <AchatBox>
                                 <div>*</div> <div>#</div>
@@ -295,14 +279,13 @@ const setVh = () => {
                     </QuestionList>
                 )}
             </QuestionLayout>
-            : //더이상 보여줄 pageList.length 가 없기때문에 결과페이지 보여주기!
+            : //더이상 보여줄 pageList.length 가 없기때문에 결과페이지 보여주기!            
             <QuestionLayout>
                 <MbtiTitle>
                     <MbtiTitle1>MBTI 테스트</MbtiTitle1>
                     <div onClick={() => window.location.reload()}>다시하기</div> 
                     {/* 현재 페이지 / 전체 페이지 */}
-                </MbtiTitle>
-                
+                </MbtiTitle> 
                     <QuestionList style={{display: 'flex'}}>
                         <QuestionItemLayout>
                             <ProfileImg>
@@ -310,15 +293,15 @@ const setVh = () => {
                                 <ProfileImg2></ProfileImg2>
                             </ProfileImg>
                             <ChatListLayout>
-                               
+                            
                                     <ChatBox>
                                         <div>◀</div> <div>당신의 MBTI는 {mbtiContents.mbti}는요</div> 
                                     </ChatBox>
-
+                                    {isExploding && (<ConfettiExplosion />)}
                                     <ChatBox>
                                         <div>◀</div> <div>{mbtiContents.mbti}는요</div> 
                                     </ChatBox>
-
+                                    {isExploding && (<ConfettiExplosion />)}
                                     {mbtiContents.contents.map((val,idx)=>
                                         <ChatBox Key={idx}> 
                                             <div>◀</div> <div>{val}</div> 

@@ -72,9 +72,9 @@ export const StartLogo_motion = styled.div`
 `
 
 export const StartLogo_motion_spacebar = styled.div`
-      margin-top: 15px;
+    margin-top: 15px;
     font-size: 50px;
-     position: absolute;
+    position: absolute;
     left: -9999px; /* 왼쪽으로 화면 밖으로 이동 */
 `
 
@@ -176,7 +176,7 @@ export const ProfileImg2 = styled.div`
     margin-top : 2px;
 `
 export const ChatListLayout = styled.div`
-    display: flex;
+    display: flex ; 
     flex-direction: column;
 `
 
@@ -184,7 +184,6 @@ export const ChatBox = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    max-width : 60vw;
     margin : 3px 0px 12px 0px;
 
     > div:nth-child(1) {
@@ -201,7 +200,24 @@ export const ChatBox = styled.div`
         margin-left : -4px;
         border-radius: 10px;
         text-align : left;
+        font-size: 22px;
+        width: auto;
     }
+     /* transform: translateY(-500px); 변형을 적용합니다. */
+    transition: opacity 1s ease, transform 0.3s ease; /* 변형에 대한 트랜지션을 설정합니다. */
+`
+export const ChatBox_Btn = styled.div`
+    background-color:yellow;
+    height: 50px;
+    width : 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px;
+    font-size: 20px;
+    cursor:pointer;
+    transition : transform 0.3s ease;    
 `
 
 export const AchatBox = styled.div`
@@ -222,6 +238,7 @@ export const AchatBox = styled.div`
     > div:nth-child(2) {
         padding: 10px;
     }
+   
 `
 
 export const AnswerBox = styled.div`
